@@ -18,4 +18,19 @@ public interface IClientService {
      */
     public List<ClientDTO> getAllClients();
 
+    /**
+     * Busca clientes por su sharedKey.
+     *
+     * @param sharedKey sharedKey a buscar
+     * @return Lista de DTOs de clientes que coinciden con la búsqueda
+     */
+    public List<ClientDTO> searchClientsBySharedKey(String sharedKey);
+
+    /**
+     * Crea un nuevo cliente en el sistema.
+     *
+     * @param clientDTO DTO con la información del cliente a crear
+     * @return DTO del cliente creado
+     */
+    public ClientDTO createClient(ClientDTO clientDTO);
 }

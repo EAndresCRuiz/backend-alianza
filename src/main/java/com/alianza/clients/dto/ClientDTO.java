@@ -1,5 +1,6 @@
 package com.alianza.clients.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
@@ -16,7 +17,7 @@ import jakarta.validation.constraints.*;
 public class ClientDTO {
     private String id;
 
-    @NotBlank(message = "Shared key is required")
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private String sharedKey;
 
     @NotBlank(message = "Name is required")
