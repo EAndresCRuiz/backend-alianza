@@ -2,16 +2,17 @@ package com.alianza.clients.repository;
 
 import com.alianza.clients.model.Client;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 /**
  * Repositorio para operaciones de acceso a datos relacionadas con la entidad Cliente.
- * Extiende JpaRepository para heredar operaciones CRUD básicas.
+ * Extiende JpaRepository para heredar operaciones CRUD básicas y JpaSpecificationExecutor para búsquedas avanzadas.
  */
 @Repository
-public interface IClientRepository extends JpaRepository<Client, String> {
+public interface IClientRepository extends JpaRepository<Client, String>, JpaSpecificationExecutor<Client> {
 
     /**
      * Busca clientes cuya sharedKey contenga la cadena especificada, ignorando mayúsculas y minúsculas.
