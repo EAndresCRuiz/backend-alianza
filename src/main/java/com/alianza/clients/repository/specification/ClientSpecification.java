@@ -2,7 +2,8 @@ package com.alianza.clients.repository.specification;
 
 import com.alianza.clients.model.Client;
 import org.springframework.data.jpa.domain.Specification;
-import java.time.LocalDateTime;
+
+import java.time.LocalDate;
 
 public class ClientSpecification {
 
@@ -30,7 +31,7 @@ public class ClientSpecification {
             );
     }
 
-    public static Specification<Client> createdBetween(LocalDateTime startDate, LocalDateTime endDate) {
+    public static Specification<Client> createdBetween(LocalDate startDate, LocalDate endDate) {
         return (root, query, criteriaBuilder) -> {
             if (startDate == null && endDate == null) return null;
             if (startDate == null) return criteriaBuilder.lessThanOrEqualTo(root.get("createdAt"), endDate);
